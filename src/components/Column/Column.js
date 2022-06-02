@@ -5,7 +5,11 @@ import { useSelector } from 'react-redux';
 
 const Column = (props) => {
   const cards = useSelector((state) =>
-    state.cards.filter((card) => card.columnId === props.id)
+    state.cards.filter(
+      (card) =>
+        card.columnId === props.id &&
+        card.title.toLowerCase().includes(state.searchText)
+    )
   );
 
   return (
