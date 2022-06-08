@@ -4,8 +4,8 @@ const TextInput = (props) => {
   return (
     <input
       className={styles.input}
-      value={props.value}
       onChange={props.onChange}
+      value={props.value}
       placeholder={props.placeholder}
       type='text'
     />

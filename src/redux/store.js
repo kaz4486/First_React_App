@@ -11,6 +11,17 @@ export const getFilteredCards = ({ searchText, cards }, columnId) =>
 
 export const getAllColumns = (state) => state.columns;
 
+//drugi argument?
+export const getListById = ({ lists }, listId) =>
+  lists.find((list) => list.id === listId);
+
+export const getColumnsById = ({ columns }, listId) =>
+  columns.filter((column) => column.listId === listId);
+
+export const getAllLists = (state) => state.lists;
+
+export const getSearchedText = (state) => state.searchText;
+
 // action creators
 export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
 

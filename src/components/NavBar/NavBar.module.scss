@@ -9,17 +9,31 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   a {
+    text-align: center;
     color: $color-light;
-    size: $base-size * 6;
+    font-size: $base-size * 2.5;
     margin-left: $base-size * 2;
   }
 }
 
 .links {
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+  }
   a {
     padding-right: $base-size;
     text-decoration: none;
     color: $color-light;
+  }
+
+  .linkActive {
+    color: $color-warning;
   }
 }
