@@ -3,15 +3,23 @@ import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSearchedText, modifyTextSearch } from '../../redux/store';
+import { modifyTextSearch } from '../../redux/store';
+import { useEffect } from 'react';
 
 const SearchForm = () => {
+  const dispatch = useDispatch();
+
+  //1
+  //const modifiedSearchText = useSelector((state) => getSearchedText(state));
   const [searchText, setSearchText] = useState('');
-  const modifiedSearchText = useSelector((state) => getSearchedText(state));
 
   //Mamy więc dwa wyjścia. Musimy zadbać o to, aby <SearchForm> zawsze pokazywał w inpucie zawartość state.searchString, albo state.searchString musi być zerowany przy inicjacji <SearchForm>. Wybierz jedną z tych dwóch dróg i napraw <SearchForm>.
 
-  const dispatch = useDispatch();
+  //2
+  useEffect(() => {
+    dispatch(modifyTextSearch(searchText));
+  }, [searchText]);
+
   //dispatch(modifyTextSearch(searchText));
 
   const handleSubmit = (e) => {
