@@ -22,6 +22,9 @@ export const getAllLists = (state) => state.lists;
 
 export const getSearchedText = (state) => state.searchText;
 
+export const getAllFavoriteCards = (state) =>
+  state.cards.filter((card) => card.isFavorite);
+
 // action creators
 export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
 
@@ -31,6 +34,11 @@ export const addList = (payload) => ({ type: 'ADD_LIST', payload });
 
 export const modifyTextSearch = (payload) => ({
   type: 'MODIFY_SEARCH_TEXT',
+  payload,
+});
+
+export const toggleCardFavorite = (payload) => ({
+  type: 'TOGGLE_CARD_FAVORITE',
   payload,
 });
 
@@ -55,6 +63,15 @@ const reducer = (state, action) => {
       return {
         ...state,
         lists: [...state.lists, { id: shortid(), ...action.payload }],
+      };
+    case 'TOGGLE_CARD_FAVORITE':
+      return {
+        ...state,
+        cards: state.cards.map((card) =>
+          card.id === action.payload
+            ? { ...card, isFavorite: !card.isFavorite }
+            : card
+        ),
       };
     default:
       return state;

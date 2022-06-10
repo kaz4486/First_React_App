@@ -11,3 +11,16 @@
   justify-content: space-between;
   font-weight: bold;
 }
+
+button {
+  border: none;
+  cursor: pointer;
+  span {
+    background-color: white;
+  }
+}
+
+.isFavorite {
+  color: goldenrod;
+  transform: scale(120%);
+}
