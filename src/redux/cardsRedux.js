@@ -38,7 +38,9 @@ const cardsReducer = (statePart = [], action) => {
       );
     case REMOVE_CARD:
       return statePart.map((card) =>
-        card.id === action.payload ? { ...statePart.splice(card, 1) } : card
+        card.id === action.payload
+          ? { ...statePart.filter((card) => card.id !== action.payload) }
+          : card
       );
 
     default:

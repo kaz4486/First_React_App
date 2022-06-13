@@ -36,7 +36,7 @@ const ColumnForm = (listId) => {
       />
       <Button>Add column</Button>
     </form>
-    //dlaczego onsubmit na formularzu
+    //onsubmit
   );
 };
 

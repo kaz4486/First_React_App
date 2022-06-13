@@ -16,9 +16,11 @@ const SearchForm = () => {
   //Mamy więc dwa wyjścia. Musimy zadbać o to, aby <SearchForm> zawsze pokazywał w inpucie zawartość state.searchString, albo state.searchString musi być zerowany przy inicjacji <SearchForm>. Wybierz jedną z tych dwóch dróg i napraw <SearchForm>.
 
   //2
+
   useEffect(() => {
     dispatch(modifyTextSearch(searchText));
-  }, [searchText]);
+    // eslint-disable-next-line
+  }, []);
 
   //dispatch(modifyTextSearch(searchText));
 
